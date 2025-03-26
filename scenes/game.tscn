@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8q5v0j6y5n3w"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_2u4vx"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="2_8u4vx"]
+[ext_resource type="Script" path="res://scripts/dungeon_generator.gd" id="3_9u4vx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1"]
+texture_region_size = Vector2i(16, 16)
+0/name = "Floor"
+0/texture_region = Rect2i(0, 0, 16, 16)
+0/modulate = Color(0.7, 0.7, 0.7, 1)
+0/material = null
+0/probability = 1.0
+0/z_index = 0
+1/name = "Wall"
+1/texture_region = Rect2i(16, 0, 16, 16)
+1/modulate = Color(0.4, 0.4, 0.4, 1)
+1/material = null
+1/probability = 1.0
+1/z_index = 0
+
+[sub_resource type="TileSet" id="TileSet_1"]
+tile_size = Vector2i(16, 16)
+sources/0 = SubResource("TileSetAtlasSource_1")
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_2u4vx")
+
+[node name="DungeonGenerator" type="Node2D" parent="."]
+script = ExtResource("3_9u4vx")
+
+[node name="TileMap" type="TileMap" parent="DungeonGenerator"]
+tile_set = SubResource("TileSet_1")
+format = 2
+layer_0/name = "Ground"
+layer_1/name = "Walls"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
+
+[node name="Player" parent="." instance=ExtResource("2_8u4vx")]
+position = Vector2(400, 300)
+collision_layer = 2
+collision_mask = 5
+
+[node name="Monsters" type="Node2D" parent="."]
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stats" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 100.0
+grow_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Stats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthLabel" type="Label" parent="UI/Stats/VBoxContainer"]
+layout_mode = 2
+text = "Health: 10"
+
+[node name="AttackLabel" type="Label" parent="UI/Stats/VBoxContainer"]
+layout_mode = 2
+text = "Attack: 2" 

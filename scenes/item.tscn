@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://f8q5v0j6y5n3u"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_6u4vx"]
+
+[node name="Item" type="Area2D"]
+script = ExtResource("1_6u4vx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0.8, 0.8, 0.2, 1) 

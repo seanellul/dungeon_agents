@@ -1,0 +1,25 @@
+[gd_resource type="TileSet" load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://tiles.png" id="1_2u4vx"]
+
+[resource]
+tile_size = Vector2i(16, 16)
+physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+physics_layer_0/polygon_0/one_way = false
+physics_layer_0/polygon_0/one_way_margin = 1.0
+physics_layer_0/polygon_0/auto_tile = false
+sources/0 = SubResource("TileSetAtlasSource_1")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1"]
+texture = ExtResource("1_2u4vx")
+texture_region_size = Vector2i(16, 16)
+0:0/0 = 0
+0:0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/physics_layer_0/polygon_0/one_way = false
+0:0/physics_layer_0/polygon_0/one_way_margin = 1.0
+0:0/physics_layer_0/polygon_0/auto_tile = false
+1:0/0 = 1
+1:0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/physics_layer_0/polygon_0/one_way = false
+1:0/physics_layer_0/polygon_0/one_way_margin = 1.0
+1:0/physics_layer_0/polygon_0/auto_tile = false 
